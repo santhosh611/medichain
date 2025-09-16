@@ -1,5 +1,5 @@
+// medichain/backend/models/Patient.js
 const mongoose = require('mongoose');
-
 const PatientSchema = new mongoose.Schema({
     aadhaar_number: {
         type: String,
@@ -14,8 +14,8 @@ const PatientSchema = new mongoose.Schema({
         {
             date: { type: Date, default: Date.now },
             prescription: { type: String },
-            doctorId: { type: String }, // Corrected field name from previous responses
-            pharmacyNotes: { type: String } // Corrected field name
+            doctorId: { type: String },
+            pharmacyNotes: { type: String }
         }
     ]
 });

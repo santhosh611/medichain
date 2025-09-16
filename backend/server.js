@@ -1,3 +1,4 @@
+// medichain/backend/server.js
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
@@ -9,6 +10,7 @@ const patientRoutes = require('./routes/patientRoutes');
 const doctorRoutes = require('./routes/doctorRoutes');
 const pharmacistRoutes = require('./routes/pharmacistRoutes');
 const reportRoutes = require('./routes/reportRoutes');
+const adminRoutes = require('./routes/adminRoutes'); // New import for admin routes
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -27,6 +29,7 @@ app.use('/api/patients', patientRoutes);
 app.use('/api/doctors', doctorRoutes);
 app.use('/api/pharmacists', pharmacistRoutes);
 app.use('/api/report', reportRoutes);
+app.use('/api/admin', adminRoutes); // New route for admin
 
 // Serve the frontend static files in production
 if (process.env.NODE_ENV === 'production') {
