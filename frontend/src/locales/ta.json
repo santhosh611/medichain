@@ -1,0 +1,70 @@
+{
+  "login": {
+    "main_login": "முக்கிய உள்நுழைவு",
+    "hospital_admin_login": "மருத்துவமனை நிர்வாகி உள்நுழைவு",
+    "login_button": "உள்நுழை",
+    "username_placeholder": "பயனர்பெயர்",
+    "password_placeholder": "கடவுச்சொல்",
+    "invalid_credentials": "தவறான நற்சான்றிதழ்கள். மீண்டும் முயற்சிக்கவும்."
+  },
+  "main_dashboard": {
+    "title": "மெடிசெயின்",
+    "description_1": "QR-இயக்கப்பட்ட நோயாளிப் பதிவுகள் மூலம் தடையற்ற சுகாதார இணைப்பு.",
+    "description_2": "நோயாளிகள், மருத்துவர்கள் மற்றும் மருந்தாளுநர்களை ஒரு ஒருங்கிணைந்த தளத்தில் இணைக்கிறது.",
+    "portals": {
+      "patient": {
+        "title": "நோயாளி போர்டல்",
+        "description": "குரல் உள்ளீடு மூலம் அறிகுறிகளைப் பதிவுசெய்து, QR அணுகலுடன் உங்கள் டிஜிட்டல் சுகாதாரப் பதிவை உருவாக்கவும்.",
+        "button": "நோயாளியாக தொடரவும்"
+      },
+      "doctor": {
+        "title": "மருத்துவர் போர்டல்",
+        "description": "அறிகுறிகளை அணுக QR குறியீடுகளை ஸ்கேன் செய்து, டிஜிட்டல் மருந்துகளை தடையின்றி எழுதவும்.",
+        "button": "மருத்துவராக தொடரவும்"
+      },
+      "pharmacy": {
+        "title": "மருந்தகம் போர்டல்",
+        "description": "QR ஸ்கேன் மூலம் மருந்துகளை அணுகி, நோயாளிகளுக்கு மருந்து வழிகாட்டுதலைச் சேர்க்கவும்.",
+        "button": "மருந்தகமாக தொடரவும்"
+      }
+    },
+    "links": {
+      "admin_portal": "நிர்வாகி போர்டல்",
+      "health_analytics": "சுகாதார பகுப்பாய்வு"
+    }
+  },
+  "superadmin_dashboard": {
+    "title": "சூப்பர் அட்மின் டாஷ்போர்டு",
+    "sidebar": {
+      "title": "சூப்பர் அட்மின்",
+      "add_hospital": "புதிய மருத்துவமனையைச் சேர்",
+      "view_hospitals": "மருத்துவமனைகளைப் பார்க்கவும்",
+      "logout": "வெளியேறு"
+    },
+    "add_hospital_form": {
+      "title": "புதிய மருத்துவமனையைச் சேர்",
+      "hospital_name_placeholder": "மருத்துவமனை பெயர்",
+      "location_placeholder": "இடம்",
+      "username_placeholder": "பயனர்பெயர்",
+      "password_placeholder": "கடவுச்சொல்",
+      "button": "மருத்துவமனையைச் சேர்"
+    },
+    "view_hospitals_list": {
+      "title": "தற்போதுள்ள மருத்துவமனைகள்",
+      "hospital_name": "பெயர்",
+      "location": "இடம்",
+      "username": "பயனர்பெயர்",
+      "edit_button": "திருத்து",
+      "delete_button": "நீக்கு"
+    },
+    "edit_hospital_form": {
+      "title": "மருத்துவமனையை திருத்து",
+      "hospital_name_placeholder": "மருத்துவமனை பெயர்",
+      "location_placeholder": "இடம்",
+      "username_placeholder": "பயனர்பெயர்",
+      "password_placeholder": "கடவுச்சொல்",
+      "cancel_button": "ரத்துசெய்",
+      "update_button": "மருத்துவமனையைப் புதுப்பி"
+    }
+  }
+}

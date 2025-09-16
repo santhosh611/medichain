@@ -1,0 +1,70 @@
+{
+  "login": {
+    "main_login": "ప్రధాన లాగిన్",
+    "hospital_admin_login": "హాస్పిటల్ అడ్మిన్ లాగిన్",
+    "login_button": "లాగిన్",
+    "username_placeholder": "యూజర్పేరు",
+    "password_placeholder": "పాస్వర్డ్",
+    "invalid_credentials": "చెల్లని ఆధారాలు. దయచేసి మళ్లీ ప్రయత్నించండి."
+  },
+  "main_dashboard": {
+    "title": "మెడిచైన్",
+    "description_1": "QR-ఆధారిత రోగి రికార్డుల ద్వారా నిరాటంకమైన ఆరోగ్య సంరక్షణ కనెక్టివిటీ.",
+    "description_2": "రోగులు, వైద్యులు మరియు ఫార్మసిస్టులను ఒకే వేదికపై కలుపుతుంది.",
+    "portals": {
+      "patient": {
+        "title": "రోగి పోర్టల్",
+        "description": "వాయిస్ ఇన్పుట్తో లక్షణాలను రికార్డ్ చేయండి మరియు QR యాక్సెస్తో మీ డిజిటల్ ఆరోగ్య రికార్డును రూపొందించండి.",
+        "button": "రోగిగా కొనసాగండి"
+      },
+      "doctor": {
+        "title": "డాక్టర్ పోర్టల్",
+        "description": "లక్షణాలను యాక్సెస్ చేయడానికి QR కోడ్లను స్కాన్ చేయండి మరియు డిజిటల్ ప్రిస్క్రిప్షన్లను సజావుగా వ్రాయండి.",
+        "button": "డాక్టర్గా కొనసాగండి"
+      },
+      "pharmacy": {
+        "title": "ఫార్మసీ పోర్టల్",
+        "description": "QR స్కాన్ ద్వారా ప్రిస్క్రిప్షన్లను యాక్సెస్ చేయండి మరియు రోగులకు మందుల మార్గదర్శకత్వాన్ని జోడించండి.",
+        "button": "ఫార్మసీగా కొనసాగండి"
+      }
+    },
+    "links": {
+      "admin_portal": "అడ్మిన్ పోర్టల్",
+      "health_analytics": "ఆరోగ్య విశ్లేషణలు"
+    }
+  },
+  "superadmin_dashboard": {
+    "title": "సూపర్ అడ్మిన్ డాష్‌బోర్డ్",
+    "sidebar": {
+      "title": "సూపర్ అడ్మిన్",
+      "add_hospital": "కొత్త ఆసుపత్రిని జోడించు",
+      "view_hospitals": "ఆసుపత్రులను వీక్షించండి",
+      "logout": "లాగ్అవుట్"
+    },
+    "add_hospital_form": {
+      "title": "కొత్త ఆసుపత్రిని జోడించు",
+      "hospital_name_placeholder": "ఆసుపత్రి పేరు",
+      "location_placeholder": "స్థానం",
+      "username_placeholder": "యూజర్పేరు",
+      "password_placeholder": "పాస్వర్డ్",
+      "button": "ఆసుపత్రిని జోడించు"
+    },
+    "view_hospitals_list": {
+      "title": "ఇప్పటికే ఉన్న ఆసుపత్రులు",
+      "hospital_name": "పేరు",
+      "location": "స్థానం",
+      "username": "యూజర్పేరు",
+      "edit_button": "సవరించు",
+      "delete_button": "తొలగించు"
+    },
+    "edit_hospital_form": {
+      "title": "ఆసుపత్రిని సవరించు",
+      "hospital_name_placeholder": "ఆసుపత్రి పేరు",
+      "location_placeholder": "స్థానం",
+      "username_placeholder": "యూజర్పేరు",
+      "password_placeholder": "పాస్వర్డ్",
+      "cancel_button": "రద్దు",
+      "update_button": "ఆసుపత్రిని అప్‌డేట్ చేయండి"
+    }
+  }
+}

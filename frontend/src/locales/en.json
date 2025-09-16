@@ -1,0 +1,36 @@
+{
+  "login": {
+    "main_login": "Main Login",
+    "hospital_admin_login": "Hospital Admin Login",
+    "login_button": "Login",
+    "username_placeholder": "Username",
+    "password_placeholder": "Password",
+    "invalid_credentials": "Invalid credentials. Please try again."
+  },
+  "main_dashboard": {
+    "title": "MediChain",
+    "description_1": "Seamless healthcare connectivity through QR-enabled patient records.",
+    "description_2": "Connecting patients, doctors, and pharmacists in one unified platform.",
+    "portals": {
+      "patient": {
+        "title": "Patient Portal",
+        "description": "Record symptoms with voice input and generate your digital health record with QR access.",
+        "button": "Continue as Patient"
+      },
+      "doctor": {
+        "title": "Doctor Portal",
+        "description": "Scan patient QR codes to access symptoms and write digital prescriptions seamlessly.",
+        "button": "Continue as Doctor"
+      },
+      "pharmacy": {
+        "title": "Pharmacy Portal",
+        "description": "Access prescriptions via QR scan and add medication guidance for patients.",
+        "button": "Continue as Pharmacy"
+      }
+    },
+    "links": {
+      "admin_portal": "Admin Portal",
+      "health_analytics": "Health Analytics"
+    }
+  }
+}

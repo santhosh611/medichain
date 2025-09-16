@@ -1,0 +1,70 @@
+{
+  "login": {
+    "main_login": "मुख्य लॉगिन",
+    "hospital_admin_login": "अस्पताल एडमिन लॉगिन",
+    "login_button": "लॉग इन",
+    "username_placeholder": "उपयोगकर्ता नाम",
+    "password_placeholder": "पासवर्ड",
+    "invalid_credentials": "अमान्य क्रेडेंशियल। कृपया पुनः प्रयास करें।"
+  },
+  "main_dashboard": {
+    "title": "मेडीचेन",
+    "description_1": "QR-सक्षम रोगी रिकॉर्ड के माध्यम से निर्बाध स्वास्थ्य सेवा कनेक्टिविटी।",
+    "description_2": "मरीजों, डॉक्टरों और फार्मासिस्टों को एक एकीकृत प्लेटफॉर्म में जोड़ता है।",
+    "portals": {
+      "patient": {
+        "title": "रोगी पोर्टल",
+        "description": "वॉयस इनपुट के साथ लक्षणों को रिकॉर्ड करें और QR एक्सेस के साथ अपना डिजिटल स्वास्थ्य रिकॉर्ड बनाएं।",
+        "button": "रोगी के रूप में जारी रखें"
+      },
+      "doctor": {
+        "title": "डॉक्टर पोर्टल",
+        "description": "लक्षणों तक पहुंचने के लिए QR कोड स्कैन करें और डिजिटल प्रिस्क्रिप्शन आसानी से लिखें।",
+        "button": "डॉक्टर के रूप में जारी रखें"
+      },
+      "pharmacy": {
+        "title": "फार्मेसी पोर्टल",
+        "description": "QR स्कैन के माध्यम से प्रिस्क्रिप्शन तक पहुंचें और मरीजों के लिए दवा मार्गदर्शन जोड़ें।",
+        "button": "फार्मेसी के रूप में जारी रखें"
+      }
+    },
+    "links": {
+      "admin_portal": "एडमिन पोर्टल",
+      "health_analytics": "स्वास्थ्य विश्लेषण"
+    }
+  },
+  "superadmin_dashboard": {
+    "title": "सुपर एडमिन डैशबोर्ड",
+    "sidebar": {
+      "title": "सुपर एडमिन",
+      "add_hospital": "नया अस्पताल जोड़ें",
+      "view_hospitals": "अस्पताल देखें",
+      "logout": "लॉगआउट"
+    },
+    "add_hospital_form": {
+      "title": "नया अस्पताल जोड़ें",
+      "hospital_name_placeholder": "अस्पताल का नाम",
+      "location_placeholder": "स्थान",
+      "username_placeholder": "उपयोगकर्ता नाम",
+      "password_placeholder": "पासवर्ड",
+      "button": "अस्पताल जोड़ें"
+    },
+    "view_hospitals_list": {
+      "title": "मौजूदा अस्पताल",
+      "hospital_name": "नाम",
+      "location": "स्थान",
+      "username": "उपयोगकर्ता नाम",
+      "edit_button": "संपादित करें",
+      "delete_button": "हटाएँ"
+    },
+    "edit_hospital_form": {
+      "title": "अस्पताल संपादित करें",
+      "hospital_name_placeholder": "अस्पताल का नाम",
+      "location_placeholder": "स्थान",
+      "username_placeholder": "उपयोगकर्ता नाम",
+      "password_placeholder": "पासवर्ड",
+      "cancel_button": "रद्द करें",
+      "update_button": "अस्पताल अपडेट करें"
+    }
+  }
+}

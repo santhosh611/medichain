@@ -15,7 +15,9 @@ exports.superadminLogin = (req, res) => {
 
 exports.addHospital = async (req, res) => {
     try {
-        const newHospital = new Hospital(req.body);
+        const { hospital_name, location, username, password } = req.body;
+        // Assuming the frontend sends an object for hospital_name and location
+        const newHospital = new Hospital({ hospital_name, location, username, password });
         await newHospital.save();
         res.status(201).json({ message: 'Hospital added successfully' });
     } catch (err) {

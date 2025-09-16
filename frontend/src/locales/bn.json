@@ -1,0 +1,70 @@
+{
+  "login": {
+    "main_login": "প্রধান লগইন",
+    "hospital_admin_login": "হাসপাতাল অ্যাডমিন লগইন",
+    "login_button": "লগইন",
+    "username_placeholder": "ব্যবহারকারীর নাম",
+    "password_placeholder": "পাসওয়ার্ড",
+    "invalid_credentials": "অবৈধ শংসাপত্র। আবার চেষ্টা করুন।"
+  },
+  "main_dashboard": {
+    "title": "মেডিচেইন",
+    "description_1": "QR-সক্ষম রোগীর রেকর্ডের মাধ্যমে নিরবিচ্ছিন্ন স্বাস্থ্যসেবা সংযোগ।",
+    "description_2": "রোগী, ডাক্তার এবং ফার্মাসিস্টদের একটি একক প্ল্যাটফর্মে সংযুক্ত করে।",
+    "portals": {
+      "patient": {
+        "title": "রোগীর পোর্টাল",
+        "description": "ভয়েস ইনপুটের মাধ্যমে লক্ষণ রেকর্ড করুন এবং QR অ্যাক্সেস সহ আপনার ডিজিটাল স্বাস্থ্য রেকর্ড তৈরি করুন।",
+        "button": "রোগী হিসাবে চালিয়ে যান"
+      },
+      "doctor": {
+        "title": "ডাক্তার পোর্টাল",
+        "description": "লক্ষণ অ্যাক্সেস করতে QR কোড স্ক্যান করুন এবং নির্বিঘ্নে ডিজিটাল প্রেসক্রিপশন লিখুন।",
+        "button": "ডাক্তার হিসাবে চালিয়ে যান"
+      },
+      "pharmacy": {
+        "title": "ফার্মেসি পোর্টাল",
+        "description": "QR স্ক্যানের মাধ্যমে প্রেসক্রিপশন অ্যাক্সেস করুন এবং রোগীদের জন্য ওষুধের নির্দেশিকা যুক্ত করুন।",
+        "button": "ফার্মেসি হিসাবে চালিয়ে যান"
+      }
+    },
+    "links": {
+      "admin_portal": "অ্যাডমিন পোর্টাল",
+      "health_analytics": "স্বাস্থ্য বিশ্লেষণ"
+    }
+  },
+  "superadmin_dashboard": {
+    "title": "সুপার অ্যাডমিন ড্যাশবোর্ড",
+    "sidebar": {
+      "title": "সুপার অ্যাডমিন",
+      "add_hospital": "নতুন হাসপাতাল যোগ করুন",
+      "view_hospitals": "হাসপাতাল দেখুন",
+      "logout": "লগআউট"
+    },
+    "add_hospital_form": {
+      "title": "নতুন হাসপাতাল যোগ করুন",
+      "hospital_name_placeholder": "হাসপাতালের নাম",
+      "location_placeholder": "অবস্থান",
+      "username_placeholder": "ব্যবহারকারীর নাম",
+      "password_placeholder": "পাসওয়ার্ড",
+      "button": "হাসপাতাল যোগ করুন"
+    },
+    "view_hospitals_list": {
+      "title": "বিদ্যমান হাসপাতাল",
+      "hospital_name": "নাম",
+      "location": "অবস্থান",
+      "username": "ব্যবহারকারীর নাম",
+      "edit_button": "সম্পাদনা",
+      "delete_button": "মুছে ফেলুন"
+    },
+    "edit_hospital_form": {
+      "title": "হাসপাতাল সম্পাদনা করুন",
+      "hospital_name_placeholder": "হাসপাতালের নাম",
+      "location_placeholder": "অবস্থান",
+      "username_placeholder": "ব্যবহারকারীর নাম",
+      "password_placeholder": "পাসওয়ার্ড",
+      "cancel_button": "বাতিল করুন",
+      "update_button": "হাসপাতাল আপডেট করুন"
+    }
+  }
+}

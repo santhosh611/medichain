@@ -3,12 +3,11 @@ const mongoose = require('mongoose');
 
 const HospitalSchema = new mongoose.Schema({
     hospital_name: {
-        type: String,
-        required: true,
-        unique: true
+        type: Object, // Changed to Object
+        required: true
     },
     location: {
-        type: String,
+        type: Object, // Changed to Object
         required: true
     },
     username: {
