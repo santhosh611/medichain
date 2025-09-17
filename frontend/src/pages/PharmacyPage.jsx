@@ -63,27 +63,31 @@ const PharmacyPage = () => {
 
     if (!loggedIn) {
         return (
-            <div className="flex justify-center p-8">
-                <button onClick={handleLogin} className="bg-purple-500 text-white p-4 rounded">Pharmacy Login</button>
+            <div className="flex justify-center p-4 sm:p-8">
+                <button onClick={handleLogin} className="bg-purple-500 text-white p-4 rounded-lg shadow-md hover:bg-purple-600 transition-colors">Pharmacy Login</button>
             </div>
         );
     }
 
     return (
-        <div className="p-8">
+        <div className="p-4 sm:p-8">
             <h1 className="text-3xl font-bold mb-4">Pharmacy Portal</h1>
-            <div id="reader" className="w-full h-80"></div>
+            <div className="bg-white p-4 rounded-xl shadow-md mb-6">
+                <h2 className="text-xl font-bold mb-4">QR Scanner</h2>
+                <div id="reader" className="w-full"></div>
+            </div>
             {patient && (
-                <div className="mt-8 bg-white p-6 rounded shadow-md">
+                <div className="mt-8 bg-white p-6 rounded-xl shadow-md">
                     <h2 className="text-xl font-bold">Patient: {patient.aadhaar_number}</h2>
-                    <p>Prescription: {patient.health_records[patient.health_records.length - 1]?.prescription}</p>
+                    <p className="mt-2 text-gray-600">Prescription: {patient.health_records[patient.health_records.length - 1]?.prescription}</p>
                     <textarea
                         value={pharmacyNotes}
                         onChange={(e) => setPharmacyNotes(e.target.value)}
                         placeholder="Add dosage notes..."
-                        className="w-full p-2 border rounded my-4"
+                        className="w-full p-3 border rounded-lg my-4 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        rows="5"
                     ></textarea>
-                    <button onClick={handleAddNotes} className="bg-blue-500 text-white p-2 rounded">Add Notes</button>
+                    <button onClick={handleAddNotes} className="w-full sm:w-auto bg-purple-500 text-white p-3 rounded-lg font-semibold hover:bg-purple-600 transition-colors">Add Notes</button>
                 </div>
             )}
         </div>

@@ -13,7 +13,9 @@ const reportRoutes = require('./routes/reportRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const superadminRoutes = require('./routes/superadminRoutes');
 const hospitalRoutes = require('./routes/hospitalRoutes');
+const categoryRoutes = require('./routes/categoryRoutes');
 const hospitalAdminRoutes = require('./routes/hospitalAdminRoutes'); // New import
+const doctorAdminRoutes = require('./routes/doctorAdminRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -35,7 +37,9 @@ app.use('/api/report', reportRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/superadmin', superadminRoutes);
 app.use('/api/hospital', hospitalRoutes);
+app.use('/api/categories', categoryRoutes);
 app.use('/api/hospital-admin', hospitalAdminRoutes); // New route
+app.use('/api/doctor-admin', doctorAdminRoutes); 
 
 // Serve the frontend static files in production
 if (process.env.NODE_ENV === 'production') {

@@ -9,7 +9,7 @@ const AadhaarSchema = new mongoose.Schema({
         trim: true
     },
     name: {
-        type: String,
+        type: Object, // Changed to Object
         required: true
     },
     gender: {
@@ -17,7 +17,7 @@ const AadhaarSchema = new mongoose.Schema({
         required: true
     },
     date_of_birth: {
-        type: String, // Storing as a string to handle various formats
+        type: String, 
         required: true
     },
     phone_number: {
@@ -25,7 +25,7 @@ const AadhaarSchema = new mongoose.Schema({
         required: true
     },
     address: {
-        type: String,
+        type: Object, // Changed to Object
         required: true
     }
 });

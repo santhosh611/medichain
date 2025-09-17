@@ -32,5 +32,104 @@
       "admin_portal": "Admin Portal",
       "health_analytics": "Health Analytics"
     }
+  },
+  "superadmin_dashboard": {
+    "title": "Super Admin Dashboard",
+    "sidebar": {
+      "title": "Super Admin",
+      "add_hospital": "Add New Hospital",
+      "view_hospitals": "View Hospitals",
+      "logout": "Logout"
+    },
+    "add_hospital_form": {
+      "title": "Add New Hospital",
+      "hospital_name_placeholder": "Hospital Name",
+      "location_placeholder": "Location",
+      "username_placeholder": "Username",
+      "password_placeholder": "Password",
+      "button": "Add Hospital"
+    },
+    "view_hospitals_list": {
+      "title": "Existing Hospitals",
+      "hospital_name": "Name",
+      "location": "Location",
+      "username": "Username",
+      "edit_button": "Edit",
+      "delete_button": "Delete"
+    },
+    "edit_hospital_form": {
+      "title": "Edit Hospital",
+      "hospital_name_placeholder": "Hospital Name",
+      "location_placeholder": "Location",
+      "username_placeholder": "Username",
+      "password_placeholder": "Password",
+      "cancel_button": "Cancel",
+      "update_button": "Update Hospital"
+    }
+  },
+  "hospital_admin_dashboard": {
+    "title": "Hospital Admin Dashboard",
+    "sidebar": {
+      "title": "Admin Panel",
+      "add_data": "Add New Data",
+      "view_data": "See Saved Data"
+    },
+    "add_aadhaar_form": {
+      "title": "Add New Aadhaar Data",
+      "aadhaar_number_placeholder": "Aadhaar Number",
+      "name_placeholder": "Name",
+      "gender_label": "Gender",
+      "date_of_birth_placeholder": "Date of Birth (YYYY-MM-DD)",
+      "phone_number_placeholder": "Phone Number",
+      "address_placeholder": "Address",
+      "button": "Add Aadhaar Data"
+    },
+    "edit_aadhaar_form": {
+      "title": "Edit Aadhaar Data",
+      "aadhaar_number_placeholder": "Aadhaar Number",
+      "name_placeholder": "Name",
+      "gender_label": "Gender",
+      "date_of_birth_placeholder": "Date of Birth (YYYY-MM-DD)",
+      "phone_number_placeholder": "Phone Number",
+      "address_placeholder": "Address",
+      "update_button": "Update Aadhaar Data",
+      "cancel_button": "Cancel"
+    },
+    "view_aadhaar_list": {
+      "title": "Saved Aadhaar Data",
+      "aadhaar_no": "Aadhaar No",
+      "name": "Name",
+      "gender": "Gender",
+      "dob": "DOB",
+      "phone": "Phone",
+      "address": "Address",
+      "edit_button": "Edit",
+      "delete_button": "Delete"
+    },
+    "add_doctor_form": {
+      "title": "Add New Doctor",
+      "doctor_name_placeholder": "Doctor Name",
+      "category_placeholder": "Select a Category",
+      "button": "Add Doctor"
+    },
+    "edit_doctor_form": {
+      "title": "Edit Doctor",
+      "doctor_name_placeholder": "Doctor Name",
+      "category_placeholder": "Select a Category",
+      "update_button": "Update Doctor",
+      "cancel_button": "Cancel"
+    },
+    "view_doctors_list": {
+      "title": "Existing Doctors",
+      "id": "ID",
+      "name": "Name",
+      "category": "Category",
+      "edit_button": "Edit",
+      "delete_button": "Delete"
+    }
+  },
+  "gender_options": {
+    "male": "Male",
+    "female": "Female"
   }
 }

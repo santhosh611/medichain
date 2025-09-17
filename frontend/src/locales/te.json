@@ -66,5 +66,70 @@
       "cancel_button": "రద్దు",
       "update_button": "ఆసుపత్రిని అప్‌డేట్ చేయండి"
     }
-  }
+  },
+  "hospital_admin_dashboard": {
+    "title": "హాస్పిటల్ అడ్మిన్ డాష్‌బోర్డ్",
+    "sidebar": {
+      "title": "అడ్మిన్ ప్యానెల్",
+      "add_data": "కొత్త డేటాను జోడించు",
+      "view_data": "సేవ్ చేసిన డేటాను చూడండి"
+    },
+    "add_aadhaar_form": {
+      "title": "కొత్త ఆధార్ డేటాను జోడించు",
+      "aadhaar_number_placeholder": "ఆధార్ నంబర్",
+      "name_placeholder": "పేరు",
+      "gender_placeholder": "లింగం",
+      "date_of_birth_placeholder": "పుట్టిన తేదీ (YYYY-MM-DD)",
+      "phone_number_placeholder": "ఫోన్ నంబర్",
+      "address_placeholder": "చిరునామా",
+      "button": "ఆధార్ డేటాను జోడించు"
+    },
+    "edit_aadhaar_form": {
+      "title": "ఆధార్ డేటాను సవరించు",
+      "aadhaar_number_placeholder": "ఆధార్ నంబర్",
+      "name_placeholder": "పేరు",
+      "gender_placeholder": "లింగం",
+      "date_of_birth_placeholder": "పుట్టిన తేదీ (YYYY-MM-DD)",
+      "phone_number_placeholder": "ఫోన్ నంబర్",
+      "address_placeholder": "చిరునామా",
+      "update_button": "ఆధార్ డేటాను అప్‌డేట్ చేయండి",
+      "cancel_button": "రద్దు"
+    },
+    "view_aadhaar_list": {
+      "title": "సేవ్ చేసిన ఆధార్ డేటా",
+      "aadhaar_no": "ఆధార్ నం",
+      "name": "పేరు",
+      "gender": "లింగం",
+      "dob": "పుట్టిన తేదీ",
+      "phone": "ఫోన్",
+      "address": "చిరునామా",
+      "edit_button": "సవరించు",
+      "delete_button": "తొలగించు"
+    },
+     "add_doctor_form": {
+      "title": "కొత్త వైద్యుడిని జోడించు",
+      "doctor_name_placeholder": "వైద్యుడి పేరు",
+      "category_placeholder": "ఒక వర్గాన్ని ఎంచుకోండి",
+      "button": "వైద్యుడిని జోడించు"
+    },
+    "edit_doctor_form": {
+      "title": "వైద్యుడిని సవరించు",
+      "doctor_name_placeholder": "వైద్యుడి పేరు",
+      "category_placeholder": "ఒక వర్గాన్ని ఎంచుకోండి",
+      "update_button": "వైద్యుడిని అప్‌డేట్ చేయండి",
+      "cancel_button": "రద్దు"
+    },
+    "view_doctors_list": {
+      "title": "ఇప్పటికే ఉన్న వైద్యులు",
+      "id": "ఐడి",
+      "name": "పేరు",
+      "category": "వర్గం",
+      "edit_button": "సవరించు",
+      "delete_button": "తొలగించు"
+    },
+"gender_options": {
+    "male": "పురుషుడు",
+    "female": "స్త్రీ"
+}
+}
 }

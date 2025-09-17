@@ -66,5 +66,70 @@
       "cancel_button": "বাতিল করুন",
       "update_button": "হাসপাতাল আপডেট করুন"
     }
-  }
+  },
+  "hospital_admin_dashboard": {
+    "title": "হাসপাতাল অ্যাডমিন ড্যাশবোর্ড",
+    "sidebar": {
+      "title": "অ্যাডমিন প্যানেল",
+      "add_data": "নতুন ডেটা যোগ করুন",
+      "view_data": "সংরক্ষিত ডেটা দেখুন"
+    },
+    "add_aadhaar_form": {
+      "title": "নতুন আধার ডেটা যোগ করুন",
+      "aadhaar_number_placeholder": "আধার নম্বর",
+      "name_placeholder": "নাম",
+      "gender_placeholder": "লিঙ্গ",
+      "date_of_birth_placeholder": "জন্ম তারিখ (YYYY-MM-DD)",
+      "phone_number_placeholder": "ফোন নম্বর",
+      "address_placeholder": "ঠিকানা",
+      "button": "আধার ডেটা যোগ করুন"
+    },
+    "edit_aadhaar_form": {
+      "title": "আধার ডেটা সম্পাদনা করুন",
+      "aadhaar_number_placeholder": "আধার নম্বর",
+      "name_placeholder": "নাম",
+      "gender_placeholder": "লিঙ্গ",
+      "date_of_birth_placeholder": "জন্ম তারিখ (YYYY-MM-DD)",
+      "phone_number_placeholder": "ফোন নম্বর",
+      "address_placeholder": "ঠিকানা",
+      "update_button": "আধার ডেটা আপডেট করুন",
+      "cancel_button": "বাতিল করুন"
+    },
+    "view_aadhaar_list": {
+      "title": "সংরক্ষিত আধার ডেটা",
+      "aadhaar_no": "আধার নং",
+      "name": "নাম",
+      "gender": "লিঙ্গ",
+      "dob": "জন্ম তারিখ",
+      "phone": "ফোন",
+      "address": "ঠিকানা",
+      "edit_button": "সম্পাদনা",
+      "delete_button": "মুছে ফেলুন"
+    },
+    "add_doctor_form": {
+      "title": "নতুন ডাক্তার যোগ করুন",
+      "doctor_name_placeholder": "ডাক্তারের নাম",
+      "category_placeholder": "একটি ক্যাটাগরি নির্বাচন করুন",
+      "button": "ডাক্তার যোগ করুন"
+    },
+    "edit_doctor_form": {
+      "title": "ডাক্তার সম্পাদনা করুন",
+      "doctor_name_placeholder": "ডাক্তারের নাম",
+      "category_placeholder": "একটি ক্যাটাগরি নির্বাচন করুন",
+      "update_button": "ডাক্তার আপডেট করুন",
+      "cancel_button": "বাতিল করুন"
+    },
+    "view_doctors_list": {
+      "title": "বিদ্যমান ডাক্তার",
+      "id": "আইডি",
+      "name": "নাম",
+      "category": "ক্যাটাগরি",
+      "edit_button": "সম্পাদনা",
+      "delete_button": "মুছে ফেলুন"
+    },
+"gender_options": {
+    "male": "পুরুষ",
+    "female": "মহিলা"
+}
+}
 }

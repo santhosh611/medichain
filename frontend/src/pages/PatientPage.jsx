@@ -1,7 +1,7 @@
 // frontend/src/pages/PatientPage.jsx
-
 import React, { useState, useRef } from 'react';
 import QRCode from 'qrcode.react';
+import html2canvas from 'html2canvas';
 
 const PatientPage = () => {
   const [aadhaar, setAadhaar] = useState('');
@@ -12,7 +12,9 @@ const PatientPage = () => {
   const [symptoms, setSymptoms] = useState('');
   const [isRecording, setIsRecording] = useState(false);
   const [submissionStatus, setSubmissionStatus] = useState('idle'); // 'idle', 'submitting', 'success'
+  const [assignedDoctor, setAssignedDoctor] = useState(null); // New state to hold assigned doctor info
   const recognitionRef = useRef(null);
+  const opFormRef = useRef(null); // Ref for the OP Form container
 
   const startRecording = () => {
     if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
@@ -72,7 +74,7 @@ const PatientPage = () => {
       }
       setShowOtp(true);
     } else {
-        alert('Login failed. Please check your Aadhaar number.');
+      alert('Login failed. Please check your Aadhaar number.');
     }
   };
 
@@ -91,23 +93,51 @@ const PatientPage = () => {
   };
 
   const handleSubmitSymptoms = async () => {
+    if (!symptoms) {
+      alert("Please record your symptoms before submitting.");
+      return;
+    }
     setSubmissionStatus('submitting');
-    const res = await fetch('http://localhost:5000/api/patients/capture-symptoms', {
+    
+    // Call the new API endpoint
+    const res = await fetch('http://localhost:5000/api/patients/capture-symptoms-and-assign-doctor', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ patientId, symptoms })
     });
+
     if (res.ok) {
+      const data = await res.json();
+      setAssignedDoctor(data.assignedDoctor);
       setSubmissionStatus('success');
     } else {
       setSubmissionStatus('idle');
-      alert('Failed to submit symptoms. Please try again.');
+      alert('Failed to submit symptoms or assign a doctor. Please try again.');
     }
+  };
+
+  const handlePrint = () => {
+    window.print();
+  };
+
+  const handleDownload = async () => {
+    if (!opFormRef.current) return;
+
+    const canvas = await html2canvas(opFormRef.current);
+    const image = canvas.toDataURL('image/png');
+    
+    const link = document.createElement('a');
+    link.href = image;
+    link.download = `OP_Form_${aadhaarData.aadhaar_number}.png`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const handleNewSubmission = () => {
     setSymptoms('');
     setSubmissionStatus('idle');
+    setAssignedDoctor(null);
   };
 
   return (
@@ -128,21 +158,53 @@ const PatientPage = () => {
           {aadhaarData && (
               <div className="bg-white p-6 rounded shadow-md mb-8">
                   <h2 className="text-2xl font-bold mb-4">Patient Details</h2>
-                  <p><strong>Name:</strong> {aadhaarData.name}</p>
+                  <p><strong>Name:</strong> {aadhaarData.name?.en}</p>
                   <p><strong>Gender:</strong> {aadhaarData.gender}</p>
                   <p><strong>Date of Birth:</strong> {aadhaarData.date_of_birth}</p>
                   <p><strong>Phone Number:</strong> {aadhaarData.phone_number}</p>
-                  <p><strong>Address:</strong> {aadhaarData.address}</p>
+                  <p><strong>Address:</strong> {aadhaarData.address?.en}</p>
               </div>
           )}
 
           {submissionStatus === 'success' ? (
             <div className="flex flex-col items-center justify-center bg-white p-8 rounded-xl shadow-md">
-              <svg className="w-20 h-20 text-green-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2l4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-              <h2 className="text-2xl font-bold text-gray-800">Symptoms Submitted!</h2>
-              <button onClick={handleNewSubmission} className="mt-6 bg-blue-500 text-white p-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors">Submit Another Response</button>
+                <div className="op-form-container print:p-8" ref={opFormRef}>
+                    <h2 className="text-2xl font-bold mb-4">OP Form</h2>
+                    
+                    {aadhaarData && (
+                        <div className="mb-6">
+                            <p><strong>Aadhaar No:</strong> {aadhaarData.aadhaar_number}</p>
+                            <p><strong>Name:</strong> {aadhaarData.name?.en}</p>
+                            <p><strong>Gender:</strong> {aadhaarData.gender}</p>
+                            <p><strong>DOB:</strong> {aadhaarData.date_of_birth}</p>
+                            <p><strong>Phone:</strong> {aadhaarData.phone_number}</p>
+                            <p><strong>Address:</strong> {aadhaarData.address?.en}</p>
+                        </div>
+                    )}
+
+                    {assignedDoctor && (
+                        <div className="mb-6">
+                            <h3 className="text-xl font-semibold">Assigned Doctor:</h3>
+                            <p><strong>Name:</strong> {assignedDoctor.doctor_name}</p>
+                            <p><strong>Category:</strong> {assignedDoctor.category?.category_name}</p>
+                            {assignedDoctor.wardNumber && <p><strong>Ward Number:</strong> {assignedDoctor.wardNumber}</p>}
+                            {assignedDoctor.roomNumber && <p><strong>Room Number:</strong> {assignedDoctor.roomNumber}</p>}
+                        </div>
+                    )}
+                    
+                    <div className="flex justify-center mb-6">
+                        {patientId && <QRCode value={patientId} size={128} />}
+                    </div>
+                </div>
+              <button onClick={handlePrint} className="w-full bg-blue-500 text-white p-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors print:hidden">
+                Print OP Form
+              </button>
+              <button onClick={handleDownload} className="w-full mt-2 bg-purple-500 text-white p-3 rounded-lg font-semibold hover:bg-purple-600 transition-colors">
+                Download OP Form
+              </button>
+              <button onClick={handleNewSubmission} className="w-full mt-2 bg-gray-500 text-white p-3 rounded-lg font-semibold hover:bg-gray-600 transition-colors">
+                New Submission
+              </button>
             </div>
           ) : (
             <>
@@ -157,7 +219,7 @@ const PatientPage = () => {
                 {submissionStatus === 'submitting' ? 'Submitting...' : 'Submit Symptoms'}
               </button>
               <div className="mt-8">
-                <h2 className="text-2xl font-bold mb-4">Your Digital OP Form</h2>
+                <h2 className="text-2xl font-bold mb-4">Your Digital QR Code</h2>
                 {patientId && <QRCode value={patientId} size={128} />}
               </div>
             </>

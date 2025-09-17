@@ -80,7 +80,7 @@ const App = () => {
     
     return (
         <Router>
-            <div className="min-h-screen bg-gray-100 p-8">
+            <div className="min-h-screen bg-gray-100 p-4 sm:p-6 lg:p-8">
                 <Routes>
                     {/* Publicly accessible routes, including the main login page */}
                     <Route path="/" element={loggedInUser ? <PrivateRoutes loggedInUser={loggedInUser} setLoggedInUser={handleLogin} handleLogout={handleLogout} /> : <Login setLoggedInUser={handleLogin} />} />

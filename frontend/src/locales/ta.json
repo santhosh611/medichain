@@ -66,5 +66,70 @@
       "cancel_button": "ரத்துசெய்",
       "update_button": "மருத்துவமனையைப் புதுப்பி"
     }
-  }
+  },
+  "hospital_admin_dashboard": {
+    "title": "மருத்துவமனை நிர்வாகி டாஷ்போர்டு",
+    "sidebar": {
+      "title": "நிர்வாகி குழு",
+      "add_data": "புதிய தரவைச் சேர்",
+      "view_data": "சேமித்த தரவைப் பார்க்கவும்"
+    },
+    "add_aadhaar_form": {
+      "title": "புதிய ஆதார் தரவைச் சேர்",
+      "aadhaar_number_placeholder": "ஆதார் எண்",
+      "name_placeholder": "பெயர்",
+      "gender_placeholder": "பாலினம்",
+      "date_of_birth_placeholder": "பிறந்த தேதி (YYYY-MM-DD)",
+      "phone_number_placeholder": "தொலைபேசி எண்",
+      "address_placeholder": "முகவரி",
+      "button": "ஆதார் தரவைச் சேர்"
+    },
+    "edit_aadhaar_form": {
+      "title": "ஆதார் தரவைத் திருத்து",
+      "aadhaar_number_placeholder": "ஆதார் எண்",
+      "name_placeholder": "பெயர்",
+      "gender_placeholder": "பாலினம்",
+      "date_of_birth_placeholder": "பிறந்த தேதி (YYYY-MM-DD)",
+      "phone_number_placeholder": "தொலைபேசி எண்",
+      "address_placeholder": "முகவரி",
+      "update_button": "ஆதார் தரவைப் புதுப்பி",
+      "cancel_button": "ரத்துசெய்"
+    },
+    "view_aadhaar_list": {
+      "title": "சேமித்த ஆதார் தரவு",
+      "aadhaar_no": "ஆதார் எண்",
+      "name": "பெயர்",
+      "gender": "பாலினம்",
+      "dob": "பிறந்த தேதி",
+      "phone": "தொலைபேசி",
+      "address": "முகவரி",
+      "edit_button": "திருத்து",
+      "delete_button": "நீக்கு"
+    },
+    "add_doctor_form": {
+      "title": "புதிய மருத்துவரைச் சேர்",
+      "doctor_name_placeholder": "மருத்துவர் பெயர்",
+      "category_placeholder": "ஒரு வகையைத் தேர்ந்தெடுக்கவும்",
+      "button": "மருத்துவரைச் சேர்"
+    },
+    "edit_doctor_form": {
+      "title": "மருத்துவரை திருத்து",
+      "doctor_name_placeholder": "மருத்துவர் பெயர்",
+      "category_placeholder": "ஒரு வகையைத் தேர்ந்தெடுக்கவும்",
+      "update_button": "மருத்துவரைப் புதுப்பி",
+      "cancel_button": "ரத்துசெய்"
+    },
+    "view_doctors_list": {
+      "title": "தற்போதுள்ள மருத்துவர்கள்",
+      "id": "அடையாள எண்",
+      "name": "பெயர்",
+      "category": "வகை",
+      "edit_button": "திருத்து",
+      "delete_button": "நீக்கு"
+    },
+"gender_options": {
+    "male": "ஆண்",
+    "female": "பெண்"
+}
+}
 }

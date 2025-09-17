@@ -66,5 +66,70 @@
       "cancel_button": "रद्द करें",
       "update_button": "अस्पताल अपडेट करें"
     }
-  }
+  },
+  "hospital_admin_dashboard": {
+    "title": "अस्पताल एडमिन डैशबोर्ड",
+    "sidebar": {
+      "title": "एडमिन पैनल",
+      "add_data": "नया डेटा जोड़ें",
+      "view_data": "सहेजा गया डेटा देखें"
+    },
+    "add_aadhaar_form": {
+      "title": "नया आधार डेटा जोड़ें",
+      "aadhaar_number_placeholder": "आधार नंबर",
+      "name_placeholder": "नाम",
+      "gender_placeholder": "लिंग",
+      "date_of_birth_placeholder": "जन्म तिथि (YYYY-MM-DD)",
+      "phone_number_placeholder": "फोन नंबर",
+      "address_placeholder": "पता",
+      "button": "आधार डेटा जोड़ें"
+    },
+    "edit_aadhaar_form": {
+      "title": "आधार डेटा संपादित करें",
+      "aadhaar_number_placeholder": "आधार नंबर",
+      "name_placeholder": "नाम",
+      "gender_placeholder": "लिंग",
+      "date_of_birth_placeholder": "जन्म तिथि (YYYY-MM-DD)",
+      "phone_number_placeholder": "फोन नंबर",
+      "address_placeholder": "पता",
+      "update_button": "आधार डेटा अपडेट करें",
+      "cancel_button": "रद्द करें"
+    },
+    "view_aadhaar_list": {
+      "title": "सहेजा गया आधार डेटा",
+      "aadhaar_no": "आधार सं",
+      "name": "नाम",
+      "gender": "लिंग",
+      "dob": "जन्मतिथि",
+      "phone": "फ़ोन",
+      "address": "पता",
+      "edit_button": "संपादित करें",
+      "delete_button": "हटाएँ"
+    },
+     "add_doctor_form": {
+      "title": "नया डॉक्टर जोड़ें",
+      "doctor_name_placeholder": "डॉक्टर का नाम",
+      "category_placeholder": "एक श्रेणी का चयन करें",
+      "button": "डॉक्टर जोड़ें"
+    },
+    "edit_doctor_form": {
+      "title": "डॉक्टर संपादित करें",
+      "doctor_name_placeholder": "डॉक्टर का नाम",
+      "category_placeholder": "एक श्रेणी का चयन करें",
+      "update_button": "डॉक्टर अपडेट करें",
+      "cancel_button": "रद्द करें"
+    },
+    "view_doctors_list": {
+      "title": "मौजूदा डॉक्टर",
+      "id": "आईडी",
+      "name": "नाम",
+      "category": "श्रेणी",
+      "edit_button": "संपादित करें",
+      "delete_button": "हटाएँ"
+    },
+"gender_options": {
+    "male": "पुरुष",
+    "female": "महिला"
+}
+}
 }
