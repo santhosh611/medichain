@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Html5QrcodeScanner } from 'html5-qrcode';
 
 const DoctorPage = () => {
@@ -7,37 +7,59 @@ const DoctorPage = () => {
     const [patient, setPatient] = useState(null);
     const [prescription, setPrescription] = useState('');
     const [scanner, setScanner] = useState(null);
+    const [isScanned, setIsScanned] = useState(false); // New state for scan status
+    const scannerRef = useRef(null); // Ref to hold the scanner instance
 
-    useEffect(() => {
-        if (loggedIn && !scanner) {
-            const qrScanner = new Html5QrcodeScanner('reader', { fps: 10, qrbox: 250 });
-            setScanner(qrScanner);
-            qrScanner.render(onScanSuccess, onScanFailure);
+    const renderScanner = () => {
+        // Stop any existing scanner instance before rendering a new one
+        if (scannerRef.current) {
+            scannerRef.current.clear().catch(error => {
+                console.error("Failed to clear existing scanner: ", error);
+            });
+            scannerRef.current = null;
         }
 
+        const qrScanner = new Html5QrcodeScanner('reader', {
+            fps: 10,
+            qrbox: { width: 250, height: 250 },
+            // Request the back camera by default
+            facingMode: { exact: "environment" }
+        });
+        
+        scannerRef.current = qrScanner;
+        qrScanner.render(onScanSuccess, onScanFailure);
+    };
+
+    useEffect(() => {
+        if (loggedIn) {
+            renderScanner();
+        }
+
+        // Cleanup function to stop the scanner on unmount
         return () => {
-            if (scanner) {
-                scanner.clear().catch(error => {
-                    console.error("Failed to clear scanner: ", error);
+            if (scannerRef.current) {
+                scannerRef.current.clear().catch(error => {
+                    console.error("Failed to clear scanner on unmount: ", error);
                 });
             }
         };
-    }, [loggedIn, scanner]);
+    }, [loggedIn]);
 
     const onScanSuccess = (decodedText) => {
         setScanResult(decodedText);
-        if (scanner) {
-            scanner.clear();
+        setIsScanned(true); // Set scan status to success
+        if (scannerRef.current) {
+            scannerRef.current.clear();
         }
         fetchPatientData(decodedText);
     };
 
     const onScanFailure = (error) => {
+        // This is normal for mobile as it continuously looks for a QR code
         console.warn('QR scan error:', error);
     };
 
     const handleLogin = async () => {
-        // Mock login
         const res = await fetch('https://medichain-6tv7.onrender.com/api/doctors/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -60,6 +82,15 @@ const DoctorPage = () => {
         });
         alert('Prescription saved!');
     };
+    
+    // Function to reset the state and allow rescanning
+    const handleRescan = () => {
+        setScanResult('');
+        setPatient(null);
+        setPrescription('');
+        setIsScanned(false);
+        renderScanner();
+    };
 
     if (!loggedIn) {
         return (
@@ -72,18 +103,31 @@ const DoctorPage = () => {
     return (
         <div className="p-8">
             <h1 className="text-3xl font-bold mb-4">Doctor Portal</h1>
-            <div id="reader" className="w-full h-80"></div>
-            {patient && (
+            {!isScanned ? (
+                <>
+                    <h2 className="text-xl font-bold mb-4">QR Scanner</h2>
+                    <div id="reader" className="w-full h-80"></div>
+                </>
+            ) : (
                 <div className="mt-8 bg-white p-6 rounded shadow-md">
-                    <h2 className="text-xl font-bold">Patient ID: {patient._id}</h2>
-                    <p>Symptoms: {patient.symptoms}</p>
-                    <textarea
-                        value={prescription}
-                        onChange={(e) => setPrescription(e.target.value)}
-                        placeholder="Write prescription here..."
-                        className="w-full p-2 border rounded my-4"
-                    ></textarea>
-                    <button onClick={handlePrescribe} className="bg-blue-500 text-white p-2 rounded">Submit Prescription</button>
+                    <div className="flex items-center justify-center mb-4">
+                        <span className="text-green-500 text-3xl mr-2">✓</span>
+                        <p className="text-xl font-bold text-green-500">QR Code Scanned Successfully!</p>
+                    </div>
+                    {patient && (
+                        <>
+                            <h2 className="text-xl font-bold">Patient ID: {patient._id}</h2>
+                            <p className="mt-2 text-gray-600">Symptoms: {patient.symptoms}</p>
+                            <textarea
+                                value={prescription}
+                                onChange={(e) => setPrescription(e.target.value)}
+                                placeholder="Write prescription here..."
+                                className="w-full p-2 border rounded my-4"
+                            ></textarea>
+                            <button onClick={handlePrescribe} className="bg-blue-500 text-white p-2 rounded">Submit Prescription</button>
+                        </>
+                    )}
+                    <button onClick={handleRescan} className="mt-4 w-full bg-gray-500 text-white p-2 rounded">Scan New Patient</button>
                 </div>
             )}
         </div>
