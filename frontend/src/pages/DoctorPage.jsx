@@ -90,4 +90,4 @@ const DoctorPage = () => {
     );
 };
 
-export default DoctorPage;PharmacyPage.jsx
+export default DoctorPage;
