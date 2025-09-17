@@ -8,6 +8,7 @@ const DoctorPage = () => {
     const [prescription, setPrescription] = useState('');
     const [scanner, setScanner] = useState(null);
     const [isScanned, setIsScanned] = useState(false);
+    const [prescriptionSubmitted, setPrescriptionSubmitted] = useState(false); // New state to track prescription submission
     const scannerRef = useRef(null);
 
     const renderScanner = () => {
@@ -76,7 +77,7 @@ const DoctorPage = () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ patientId: scanResult, prescription, doctorId: 'doc123' })
         });
-        alert('Prescription saved!');
+        setPrescriptionSubmitted(true); // Set submission status to true
     };
     
     const handleRescan = () => {
@@ -84,6 +85,7 @@ const DoctorPage = () => {
         setPatient(null);
         setPrescription('');
         setIsScanned(false);
+        setPrescriptionSubmitted(false); // Reset submission status
         renderScanner();
     };
 
@@ -103,6 +105,14 @@ const DoctorPage = () => {
                     <h2 className="text-xl font-bold mb-4">QR Scanner</h2>
                     <div id="reader" className="w-full h-80"></div>
                 </>
+            ) : prescriptionSubmitted ? (
+                <div className="mt-8 bg-white p-6 rounded shadow-md text-center">
+                    <div className="text-green-500 text-6xl mb-4">
+                        ✓
+                    </div>
+                    <p className="text-xl font-bold text-green-500 mb-6">Prescription Submitted Successfully!</p>
+                    <button onClick={handleRescan} className="w-full bg-gray-500 text-white p-2 rounded">Scan New Patient</button>
+                </div>
             ) : (
                 <div className="mt-8 bg-white p-6 rounded shadow-md">
                     <div className="flex items-center justify-center mb-4">
@@ -122,7 +132,6 @@ const DoctorPage = () => {
                             <button onClick={handlePrescribe} className="bg-blue-500 text-white p-2 rounded">Submit Prescription</button>
                         </>
                     )}
-                    <button onClick={handleRescan} className="mt-4 w-full bg-gray-500 text-white p-2 rounded">Scan New Patient</button>
                 </div>
             )}
         </div>
