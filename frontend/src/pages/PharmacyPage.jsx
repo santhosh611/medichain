@@ -6,11 +6,11 @@ const PharmacyPage = () => {
     const [scanResult, setScanResult] = useState('');
     const [patient, setPatient] = useState(null);
     const [pharmacyNotes, setPharmacyNotes] = useState('');
-    const [isScanned, setIsScanned] = useState(false); // New state for scan status
-    const scannerRef = useRef(null); // Ref to hold the scanner instance
+    const [isScanned, setIsScanned] = useState(false);
+    const [notesAddedSuccessfully, setNotesAddedSuccessfully] = useState(false); // New state for tracking notes submission
+    const scannerRef = useRef(null);
 
     const renderScanner = () => {
-        // Stop any existing scanner instance before rendering a new one
         if (scannerRef.current) {
             scannerRef.current.clear().catch(error => {
                 console.error("Failed to clear existing scanner: ", error);
@@ -21,7 +21,6 @@ const PharmacyPage = () => {
         const qrScanner = new Html5QrcodeScanner('reader', {
             fps: 10,
             qrbox: { width: 250, height: 250 },
-            // Request the back camera by default
             facingMode: { exact: "environment" }
         });
 
@@ -30,11 +29,10 @@ const PharmacyPage = () => {
     };
 
     useEffect(() => {
-        if (loggedIn) {
+        if (loggedIn && !isScanned && !notesAddedSuccessfully) {
             renderScanner();
         }
 
-        // Cleanup function to stop the scanner on unmount
         return () => {
             if (scannerRef.current) {
                 scannerRef.current.clear().catch(error => {
@@ -42,11 +40,11 @@ const PharmacyPage = () => {
                 });
             }
         };
-    }, [loggedIn]);
+    }, [loggedIn, isScanned, notesAddedSuccessfully]);
 
     const onScanSuccess = (decodedText) => {
         setScanResult(decodedText);
-        setIsScanned(true); // Set scan status to success
+        setIsScanned(true);
         if (scannerRef.current) {
             scannerRef.current.clear();
         }
@@ -54,7 +52,6 @@ const PharmacyPage = () => {
     };
 
     const onScanFailure = (error) => {
-        // This is normal for mobile as it continuously looks for a QR code
         console.warn('QR scan error:', error);
     };
 
@@ -79,7 +76,7 @@ const PharmacyPage = () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ patientId: scanResult, pharmacyNotes })
         });
-        alert('Notes added successfully!');
+        setNotesAddedSuccessfully(true); // Set submission status to true
     };
 
     const handleRescan = () => {
@@ -87,7 +84,8 @@ const PharmacyPage = () => {
         setPatient(null);
         setPharmacyNotes('');
         setIsScanned(false);
-        renderScanner();
+        setNotesAddedSuccessfully(false); // Reset submission status
+        // The useEffect hook will handle rendering the scanner again
     };
 
     if (!loggedIn) {
@@ -106,6 +104,14 @@ const PharmacyPage = () => {
                     <h2 className="text-xl font-bold mb-4">QR Scanner</h2>
                     <div id="reader" className="w-full h-80"></div>
                 </>
+            ) : notesAddedSuccessfully ? (
+                <div className="mt-8 bg-white p-6 rounded shadow-md text-center">
+                    <div className="text-green-500 text-6xl mb-4">
+                        ✓
+                    </div>
+                    <p className="text-xl font-bold text-green-500 mb-6">Notes Added Successfully!</p>
+                    <button onClick={handleRescan} className="w-full bg-gray-500 text-white p-2 rounded">Scan New Patient</button>
+                </div>
             ) : (
                 <div className="mt-8 bg-white p-6 rounded shadow-md">
                     <div className="flex items-center justify-center mb-4">
@@ -125,7 +131,6 @@ const PharmacyPage = () => {
                             <button onClick={handleAddNotes} className="bg-blue-500 text-white p-2 rounded">Add Notes</button>
                         </>
                     )}
-                    <button onClick={handleRescan} className="mt-4 w-full bg-gray-500 text-white p-2 rounded">Scan New Patient</button>
                 </div>
             )}
         </div>
