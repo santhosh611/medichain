@@ -15,7 +15,7 @@ const HospitalAdminLogin = ({ setLoggedInUser }) => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        const res = await fetch('http://localhost:5000/api/hospital-admin/login', {
+        const res = await fetch('https://medichain-6tv7.onrender.com/api/hospital-admin/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(loginData)

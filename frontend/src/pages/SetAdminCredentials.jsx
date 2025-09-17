@@ -19,7 +19,7 @@ const SetAdminCredentials = ({ hospitalId, setLoggedInUser }) => {
             return;
         }
 
-        const res = await fetch(`http://localhost:5000/api/hospital/setup-admin-credentials/${hospitalId}`, {
+        const res = await fetch(`https://medichain-6tv7.onrender.com/api/hospital/setup-admin-credentials/${hospitalId}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(credentials)

@@ -15,7 +15,7 @@ const DashboardPage = () => {
     }, []);
 
     const fetchReport = async () => {
-        const res = await fetch('http://localhost:5000/api/report');
+        const res = await fetch('https://medichain-6tv7.onrender.com/api/report');
         const data = await res.json();
         const labels = data.map(item => item._id);
         const counts = data.map(item => item.count);

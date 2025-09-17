@@ -12,7 +12,7 @@ const PasswordSetup = ({ hospitalId, setLoggedInUser }) => {
             return;
         }
 
-        const res = await fetch(`http://localhost:5000/api/hospital/setup-password/${hospitalId}`, {
+        const res = await fetch(`https://medichain-6tv7.onrender.com/api/hospital/setup-password/${hospitalId}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ password })

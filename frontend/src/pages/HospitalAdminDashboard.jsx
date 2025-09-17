@@ -33,7 +33,7 @@ const HospitalAdminDashboard = () => {
     });
 
     const fetchAllAadhaarDetails = async () => {
-        const res = await fetch('http://localhost:5000/api/admin/all-aadhaar');
+        const res = await fetch('https://medichain-6tv7.onrender.com/api/admin/all-aadhaar');
         if (res.ok) {
             const data = await res.json();
             setAadhaarData(data);
@@ -73,7 +73,7 @@ const HospitalAdminDashboard = () => {
             address: { en: formData.address }
         };
 
-        const res = await fetch('http://localhost:5000/api/admin/add-aadhaar', {
+        const res = await fetch('https://medichain-6tv7.onrender.com/api/admin/add-aadhaar', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
@@ -119,7 +119,7 @@ const HospitalAdminDashboard = () => {
             address: { en: formData.address }
         };
 
-        const res = await fetch(`http://localhost:5000/api/admin/update-aadhaar/${editingAadhaar._id}`, {
+        const res = await fetch(`https://medichain-6tv7.onrender.com/api/admin/update-aadhaar/${editingAadhaar._id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
@@ -144,7 +144,7 @@ const HospitalAdminDashboard = () => {
 
     const handleDeleteAadhaar = async (id) => {
         if (window.confirm('Are you sure you want to delete this record?')) {
-            const res = await fetch(`http://localhost:5000/api/admin/delete-aadhaar/${id}`, {
+            const res = await fetch(`https://medichain-6tv7.onrender.com/api/admin/delete-aadhaar/${id}`, {
                 method: 'DELETE'
             });
             if (res.ok) {
@@ -159,7 +159,7 @@ const HospitalAdminDashboard = () => {
     const handleEditCategory = async (category) => {
         const newName = prompt('Enter new category name:', category.category_name);
         if (newName) {
-            const res = await fetch(`http://localhost:5000/api/categories/update-category/${category._id}`, {
+            const res = await fetch(`https://medichain-6tv7.onrender.com/api/categories/update-category/${category._id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ category_name: newName })
@@ -178,14 +178,12 @@ const HospitalAdminDashboard = () => {
         setIsSidebarOpen(false);
     };
 
-    // The handler to open the new edit form
     const handleEditDoctor = (doctor) => {
         setEditingDoctor(doctor);
         setActiveTab('edit-doctor');
         setIsSidebarOpen(false);
     };
 
-    // Handler to close the edit form and refresh the list
     const handleDoctorUpdate = () => {
         setEditingDoctor(null);
         setActiveTab('view-doctors');
@@ -203,7 +201,6 @@ const HospitalAdminDashboard = () => {
 
     return (
         <div className="relative flex min-h-screen bg-gray-100">
-            {/* Sidebar Toggle Button for Mobile */}
             <button
                 onClick={toggleSidebar}
                 className="md:hidden absolute top-4 left-4 z-50 p-2 bg-white rounded-md shadow-md text-gray-700"
@@ -213,7 +210,6 @@ const HospitalAdminDashboard = () => {
                 </svg>
             </button>
             
-            {/* Sidebar */}
             <div className={`md:w-64 bg-white shadow-lg p-6 fixed md:relative inset-y-0 left-0 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 transition-transform duration-200 ease-in-out z-40`}>
                 <h2 className="text-2xl font-bold mb-6">{t('hospital_admin_dashboard.title')}</h2>
                 <nav>
@@ -300,14 +296,13 @@ const HospitalAdminDashboard = () => {
                 </nav>
             </div>
 
-            {/* Main Content */}
             <div className="flex-1 p-4 md:p-8 overflow-y-auto">
                 <h1 className="text-3xl font-bold mb-8">{t('hospital_admin_dashboard.title')}</h1>
 
                 {(activeTab === 'add-aadhaar' || activeTab === 'view-aadhaar') && (
                     <>
                         {activeTab === 'add-aadhaar' && (
-                            <div className="w-full max-w-lg bg-white p-8 rounded-xl shadow-md mx-auto">
+                            <div className="w-full max-w-lg bg-white p-6 sm:p-8 rounded-xl shadow-md mx-auto">
                                 <h2 className="text-2xl font-bold mb-6 text-center">{editingAadhaar ? t('hospital_admin_dashboard.edit_aadhaar_form.title') : t('hospital_admin_dashboard.add_aadhaar_form.title')}</h2>
                                 <form onSubmit={editingAadhaar ? handleUpdateAadhaar : handleSubmit} className="space-y-4">
                                     <input type="text" name="aadhaar_number" value={formData.aadhaar_number} onChange={handleChange} placeholder={t('hospital_admin_dashboard.add_aadhaar_form.aadhaar_number_placeholder')} className="w-full p-3 border rounded-lg" required />
@@ -347,20 +342,20 @@ const HospitalAdminDashboard = () => {
                             </div>
                         )}
                         {activeTab === 'view-aadhaar' && (
-                            <div className="w-full bg-white p-8 rounded-xl shadow-md">
+                            <div className="w-full bg-white p-6 sm:p-8 rounded-xl shadow-md">
                                 <h2 className="text-2xl font-bold mb-6 text-center">{t('hospital_admin_dashboard.view_aadhaar_list.title')}</h2>
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                                     {aadhaarData.map(aadhaar => (
-                                        <div key={aadhaar._id} className="bg-white p-6 rounded-lg shadow-inner">
+                                        <div key={aadhaar._id} className="bg-white p-4 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                                             <p><strong>{t('hospital_admin_dashboard.view_aadhaar_list.aadhaar_no')}:</strong> {aadhaar.aadhaar_number}</p>
                                             <p><strong>{t('hospital_admin_dashboard.view_aadhaar_list.name')}:</strong> {aadhaar.name?.[i18n.language] || aadhaar.name?.en || 'N/A'}</p>
                                             <p><strong>{t('hospital_admin_dashboard.view_aadhaar_list.gender')}:</strong> {aadhaar.gender?.[i18n.language] || aadhaar.gender?.en || 'N/A'}</p>
                                             <p><strong>{t('hospital_admin_dashboard.view_aadhaar_list.dob')}:</strong> {aadhaar.date_of_birth}</p>
                                             <p><strong>{t('hospital_admin_dashboard.view_aadhaar_list.phone')}:</strong> {aadhaar.phone_number}</p>
                                             <p><strong>{t('hospital_admin_dashboard.view_aadhaar_list.address')}:</strong> {aadhaar.address?.[i18n.language] || aadhaar.address?.en || 'N/A'}</p>
-                                            <div className="mt-4 flex justify-between">
-                                                <button onClick={() => handleEditAadhaar(aadhaar)} className="bg-yellow-500 text-white p-2 rounded-lg text-sm hover:bg-yellow-600">{t('hospital_admin_dashboard.view_aadhaar_list.edit_button')}</button>
-                                                <button onClick={() => handleDeleteAadhaar(aadhaar._id)} className="bg-red-500 text-white p-2 rounded-lg text-sm hover:bg-red-600">{t('hospital_admin_dashboard.view_aadhaar_list.delete_button')}</button>
+                                            <div className="mt-4 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+                                                <button onClick={() => handleEditAadhaar(aadhaar)} className="bg-yellow-500 text-white p-2 rounded-lg text-sm hover:bg-yellow-600 w-full sm:w-auto">{t('hospital_admin_dashboard.view_aadhaar_list.edit_button')}</button>
+                                                <button onClick={() => handleDeleteAadhaar(aadhaar._id)} className="bg-red-500 text-white p-2 rounded-lg text-sm hover:bg-red-600 w-full sm:w-auto">{t('hospital_admin_dashboard.view_aadhaar_list.delete_button')}</button>
                                             </div>
                                         </div>
                                     ))}

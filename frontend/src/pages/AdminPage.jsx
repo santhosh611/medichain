@@ -22,7 +22,7 @@ const AdminPage = () => {
     });
 
     const fetchAllAadhaarDetails = async () => {
-        const res = await fetch('http://localhost:5000/api/admin/all-aadhaar');
+        const res = await fetch('https://medichain-6tv7.onrender.com/api/admin/all-aadhaar');
         if (res.ok) {
             const data = await res.json();
             setAadhaarData(data);
@@ -43,7 +43,7 @@ const AdminPage = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        const res = await fetch('http://localhost:5000/api/admin/login', {
+        const res = await fetch('https://medichain-6tv7.onrender.com/api/admin/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(loginData)
@@ -61,7 +61,7 @@ const AdminPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const res = await fetch('http://localhost:5000/api/admin/add-aadhaar', {
+        const res = await fetch('https://medichain-6tv7.onrender.com/api/admin/add-aadhaar', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
@@ -83,13 +83,13 @@ const AdminPage = () => {
 
     const handleEdit = (aadhaar) => {
         setEditingAadhaar(aadhaar);
-        setFormData(aadhaar); // Populate form with existing data
+        setFormData(aadhaar);
         setActiveTab('add');
     };
 
     const handleUpdate = async (e) => {
         e.preventDefault();
-        const res = await fetch(`http://localhost:5000/api/admin/update-aadhaar/${editingAadhaar._id}`, {
+        const res = await fetch(`https://medichain-6tv7.onrender.com/api/admin/update-aadhaar/${editingAadhaar._id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
@@ -105,7 +105,7 @@ const AdminPage = () => {
                 phone_number: '',
                 address: ''
             });
-            fetchAllAadhaarDetails(); // Refresh the list
+            fetchAllAadhaarDetails();
             setActiveTab('view');
         } else {
             alert('Failed to update Aadhaar data.');
@@ -114,12 +114,12 @@ const AdminPage = () => {
 
     const handleDelete = async (id) => {
         if (window.confirm('Are you sure you want to delete this record?')) {
-            const res = await fetch(`http://localhost:5000/api/admin/delete-aadhaar/${id}`, {
+            const res = await fetch(`https://medichain-6tv7.onrender.com/api/admin/delete-aadhaar/${id}`, {
                 method: 'DELETE'
             });
             if (res.ok) {
                 alert('Aadhaar data deleted successfully!');
-                fetchAllAadhaarDetails(); // Refresh the list
+                fetchAllAadhaarDetails();
             } else {
                 alert('Failed to delete Aadhaar data.');
             }
@@ -141,7 +141,6 @@ const AdminPage = () => {
 
     return (
         <div className="flex h-screen bg-gray-100">
-            {/* Sidebar */}
             <div className="w-64 bg-white shadow-md p-6">
                 <h2 className="text-2xl font-bold mb-6">Admin Panel</h2>
                 <nav>
@@ -156,7 +155,6 @@ const AdminPage = () => {
                 </nav>
             </div>
 
-            {/* Main Content */}
             <div className="flex-1 p-8 overflow-y-auto">
                 <h1 className="text-3xl font-bold mb-8">Admin Portal</h1>
 

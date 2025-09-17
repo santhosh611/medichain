@@ -11,10 +11,10 @@ const PatientPage = () => {
   const [aadhaarData, setAadhaarData] = useState(null);
   const [symptoms, setSymptoms] = useState('');
   const [isRecording, setIsRecording] = useState(false);
-  const [submissionStatus, setSubmissionStatus] = useState('idle'); // 'idle', 'submitting', 'success'
-  const [assignedDoctor, setAssignedDoctor] = useState(null); // New state to hold assigned doctor info
+  const [submissionStatus, setSubmissionStatus] = useState('idle');
+  const [assignedDoctor, setAssignedDoctor] = useState(null);
   const recognitionRef = useRef(null);
-  const opFormRef = useRef(null); // Ref for the OP Form container
+  const opFormRef = useRef(null);
 
   const startRecording = () => {
     if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
@@ -60,14 +60,14 @@ const PatientPage = () => {
   };
 
   const handleLogin = async () => {
-    const res = await fetch('http://localhost:5000/api/patients/login', {
+    const res = await fetch('https://medichain-6tv7.onrender.com/api/patients/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ aadhaar_number: aadhaar })
     });
     const data = await res.json();
     if (data.success) {
-      const aadhaarRes = await fetch(`http://localhost:5000/api/patients/aadhaar/${aadhaar}`);
+      const aadhaarRes = await fetch(`https://medichain-6tv7.onrender.com/api/patients/aadhaar/${aadhaar}`);
       if (aadhaarRes.ok) {
         const aadhaarDetails = await aadhaarRes.json();
         setAadhaarData(aadhaarDetails);
@@ -79,7 +79,7 @@ const PatientPage = () => {
   };
 
   const handleVerifyOtp = async () => {
-    const res = await fetch('http://localhost:5000/api/patients/verify-otp', {
+    const res = await fetch('https://medichain-6tv7.onrender.com/api/patients/verify-otp', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ aadhaar_number: aadhaar, otp })
@@ -99,8 +99,7 @@ const PatientPage = () => {
     }
     setSubmissionStatus('submitting');
     
-    // Call the new API endpoint
-    const res = await fetch('http://localhost:5000/api/patients/capture-symptoms-and-assign-doctor', {
+    const res = await fetch('https://medichain-6tv7.onrender.com/api/patients/capture-symptoms-and-assign-doctor', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ patientId, symptoms })
