@@ -7,11 +7,10 @@ const DoctorPage = () => {
     const [patient, setPatient] = useState(null);
     const [prescription, setPrescription] = useState('');
     const [scanner, setScanner] = useState(null);
-    const [isScanned, setIsScanned] = useState(false); // New state for scan status
-    const scannerRef = useRef(null); // Ref to hold the scanner instance
+    const [isScanned, setIsScanned] = useState(false);
+    const scannerRef = useRef(null);
 
     const renderScanner = () => {
-        // Stop any existing scanner instance before rendering a new one
         if (scannerRef.current) {
             scannerRef.current.clear().catch(error => {
                 console.error("Failed to clear existing scanner: ", error);
@@ -22,7 +21,6 @@ const DoctorPage = () => {
         const qrScanner = new Html5QrcodeScanner('reader', {
             fps: 10,
             qrbox: { width: 250, height: 250 },
-            // Request the back camera by default
             facingMode: { exact: "environment" }
         });
         
@@ -35,7 +33,6 @@ const DoctorPage = () => {
             renderScanner();
         }
 
-        // Cleanup function to stop the scanner on unmount
         return () => {
             if (scannerRef.current) {
                 scannerRef.current.clear().catch(error => {
@@ -47,7 +44,7 @@ const DoctorPage = () => {
 
     const onScanSuccess = (decodedText) => {
         setScanResult(decodedText);
-        setIsScanned(true); // Set scan status to success
+        setIsScanned(true);
         if (scannerRef.current) {
             scannerRef.current.clear();
         }
@@ -55,7 +52,6 @@ const DoctorPage = () => {
     };
 
     const onScanFailure = (error) => {
-        // This is normal for mobile as it continuously looks for a QR code
         console.warn('QR scan error:', error);
     };
 
@@ -83,7 +79,6 @@ const DoctorPage = () => {
         alert('Prescription saved!');
     };
     
-    // Function to reset the state and allow rescanning
     const handleRescan = () => {
         setScanResult('');
         setPatient(null);
