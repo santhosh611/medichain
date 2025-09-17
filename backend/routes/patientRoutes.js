@@ -10,7 +10,11 @@ router.post('/verify-otp', patientController.verifyOTP);
 // Removed the old capture-symptoms route as it will be replaced
 // router.post('/capture-symptoms', patientController.captureSymptoms);
 router.post('/capture-symptoms-and-assign-doctor', patientController.captureSymptomsAndAssignDoctor); // New route
-router.get('/:id', doctorController.getPatientRecord);
+
+// Reordered routes to ensure specific routes are matched first
+router.get('/records/:id', patientController.getPatientFullRecord); // New route for patient dashboard
 router.get('/aadhaar/:aadhaar_number', adminController.getAadhaarDetails);
+router.get('/:id', doctorController.getPatientRecord);
+
 
 module.exports = router;

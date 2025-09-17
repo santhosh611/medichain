@@ -1,4 +1,3 @@
-// medichain/frontend/src/App.jsx
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import Login from './pages/Login';
@@ -11,6 +10,7 @@ import PatientPage from './pages/PatientPage';
 import DoctorPage from './pages/DoctorPage';
 import PharmacyPage from './pages/PharmacyPage';
 import DashboardPage from './pages/DashboardPage';
+import PatientDashboardPage from './pages/PatientDashboardPage'; // New import
 import { useTranslation } from 'react-i18next';
 
 // A private component to hold all routes for logged-in users
@@ -30,6 +30,9 @@ const PrivateRoutes = ({ loggedInUser, handleLogout }) => {
                 case 'hospitalAdmin':
                     navigate('/admin-dashboard');
                     break;
+                case 'patient': // New case for patient
+                    navigate('/patient-dashboard');
+                    break;
                 default:
                     navigate('/');
                     break;
@@ -46,6 +49,7 @@ const PrivateRoutes = ({ loggedInUser, handleLogout }) => {
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/superadmin-dashboard/*" element={<SuperAdminDashboard handleLogout={handleLogout} />} />
             <Route path="/admin-dashboard/*" element={<HospitalAdminDashboard />} />
+            <Route path="/patient-dashboard" element={<PatientDashboardPage loggedInPatientId={loggedInUser?.id} />} /> // New route for patient dashboard
         </Routes>
     );
 };
@@ -76,7 +80,7 @@ const App = () => {
 
     const handleLogin = (user) => {
         setLoggedInUser(user);
-        // localStorage.setItem('loggedInUser', JSON.stringify(user)); // Remove this line
+        localStorage.setItem('loggedInUser', JSON.stringify(user)); // Add this line back
     };
 
     const handleLogout = () => {
@@ -101,7 +105,7 @@ const App = () => {
         <Router>
             <div className="min-h-screen bg-gray-100 p-4 sm:p-6 lg:p-8">
                 <Routes>
-                    <Route path="/" element={loggedInUser ? <PrivateRoutes loggedInUser={loggedInUser} handleLogout={handleLogout} /> : <Login setLoggedInUser={handleLogin} />} />
+                    <Route path="/*" element={loggedInUser ? <PrivateRoutes loggedInUser={loggedInUser} handleLogout={handleLogout} /> : <Login setLoggedInUser={handleLogin} />} />
                     <Route path="/admin-login" element={<HospitalAdminLogin setLoggedInUser={handleLogin} />} />
                     <Route path="/dashboard" element={<DashboardPage />} />
                     <Route path="/patient" element={<PatientPage />} />
@@ -109,6 +113,7 @@ const App = () => {
                     <Route path="/pharmacy" element={<PharmacyPage />} />
                     <Route path="/superadmin-dashboard/*" element={<SuperAdminDashboard handleLogout={handleLogout} />} />
                     <Route path="/admin-dashboard/*" element={<HospitalAdminDashboard />} />
+                    <Route path="/patient-dashboard" element={<PatientDashboardPage loggedInPatientId={loggedInUser?.id} />} />
                 </Routes>
             </div>
         </Router>

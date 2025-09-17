@@ -2,9 +2,14 @@
   "login": {
     "main_login": "முக்கிய உள்நுழைவு",
     "hospital_admin_login": "மருத்துவமனை நிர்வாகி உள்நுழைவு",
+    "patient_login": "நோயாளி உள்நுழைவு",
     "login_button": "உள்நுழை",
     "username_placeholder": "பயனர்பெயர்",
     "password_placeholder": "கடவுச்சொல்",
+    "aadhaar_number_placeholder": "ஆதார் எண்",
+    "otp_placeholder": "OTP-ஐ உள்ளிடவும்",
+    "send_otp_button": "OTP-ஐ அனுப்பு",
+    "verify_otp_button": "OTP-ஐ சரிபார்க்கவும்",
     "invalid_credentials": "தவறான நற்சான்றிதழ்கள். மீண்டும் முயற்சிக்கவும்."
   },
   "main_dashboard": {
@@ -78,7 +83,7 @@
       "title": "புதிய ஆதார் தரவைச் சேர்",
       "aadhaar_number_placeholder": "ஆதார் எண்",
       "name_placeholder": "பெயர்",
-      "gender_placeholder": "பாலினம்",
+      "gender_label": "பாலினம்",
       "date_of_birth_placeholder": "பிறந்த தேதி (YYYY-MM-DD)",
       "phone_number_placeholder": "தொலைபேசி எண்",
       "address_placeholder": "முகவரி",
@@ -88,7 +93,7 @@
       "title": "ஆதார் தரவைத் திருத்து",
       "aadhaar_number_placeholder": "ஆதார் எண்",
       "name_placeholder": "பெயர்",
-      "gender_placeholder": "பாலினம்",
+      "gender_label": "பாலினம்",
       "date_of_birth_placeholder": "பிறந்த தேதி (YYYY-MM-DD)",
       "phone_number_placeholder": "தொலைபேசி எண்",
       "address_placeholder": "முகவரி",

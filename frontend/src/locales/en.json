@@ -2,9 +2,14 @@
   "login": {
     "main_login": "Main Login",
     "hospital_admin_login": "Hospital Admin Login",
+    "patient_login": "Patient Login",
     "login_button": "Login",
     "username_placeholder": "Username",
     "password_placeholder": "Password",
+    "aadhaar_number_placeholder": "Aadhaar Number",
+    "otp_placeholder": "Enter OTP",
+    "send_otp_button": "Send OTP",
+    "verify_otp_button": "Verify OTP",
     "invalid_credentials": "Invalid credentials. Please try again."
   },
   "main_dashboard": {

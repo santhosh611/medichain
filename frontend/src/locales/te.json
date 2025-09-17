@@ -2,9 +2,14 @@
   "login": {
     "main_login": "ప్రధాన లాగిన్",
     "hospital_admin_login": "హాస్పిటల్ అడ్మిన్ లాగిన్",
+    "patient_login": "రోగి లాగిన్",
     "login_button": "లాగిన్",
     "username_placeholder": "యూజర్పేరు",
     "password_placeholder": "పాస్వర్డ్",
+    "aadhaar_number_placeholder": "ఆధార్ నంబర్",
+    "otp_placeholder": "OTPని నమోదు చేయండి",
+    "send_otp_button": "OTPని పంపండి",
+    "verify_otp_button": "OTPని ధృవీకరించండి",
     "invalid_credentials": "చెల్లని ఆధారాలు. దయచేసి మళ్లీ ప్రయత్నించండి."
   },
   "main_dashboard": {
@@ -78,7 +83,7 @@
       "title": "కొత్త ఆధార్ డేటాను జోడించు",
       "aadhaar_number_placeholder": "ఆధార్ నంబర్",
       "name_placeholder": "పేరు",
-      "gender_placeholder": "లింగం",
+      "gender_label": "లింగం",
       "date_of_birth_placeholder": "పుట్టిన తేదీ (YYYY-MM-DD)",
       "phone_number_placeholder": "ఫోన్ నంబర్",
       "address_placeholder": "చిరునామా",
@@ -88,7 +93,7 @@
       "title": "ఆధార్ డేటాను సవరించు",
       "aadhaar_number_placeholder": "ఆధార్ నంబర్",
       "name_placeholder": "పేరు",
-      "gender_placeholder": "లింగం",
+      "gender_label": "లింగం",
       "date_of_birth_placeholder": "పుట్టిన తేదీ (YYYY-MM-DD)",
       "phone_number_placeholder": "ఫోన్ నంబర్",
       "address_placeholder": "చిరునామా",

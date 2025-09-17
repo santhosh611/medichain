@@ -115,3 +115,20 @@ exports.getPatientRecord = async (req, res) => {
         res.status(500).json({ error: 'Server error' });
     }
 };
+
+// New function to fetch full patient record for dashboard
+exports.getPatientFullRecord = async (req, res) => {
+    try {
+        const patient = await Patient.findById(req.params.id)
+            .populate({
+                path: 'assignedDoctor',
+                populate: { path: 'category' }
+            });
+        if (!patient) {
+            return res.status(404).json({ error: 'Patient not found' });
+        }
+        res.status(200).json(patient);
+    } catch (err) {
+        res.status(500).json({ error: 'Server error', details: err.message });
+    }
+};

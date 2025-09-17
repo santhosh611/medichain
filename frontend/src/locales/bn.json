@@ -2,9 +2,14 @@
   "login": {
     "main_login": "প্রধান লগইন",
     "hospital_admin_login": "হাসপাতাল অ্যাডমিন লগইন",
+    "patient_login": "রোগীর লগইন",
     "login_button": "লগইন",
     "username_placeholder": "ব্যবহারকারীর নাম",
     "password_placeholder": "পাসওয়ার্ড",
+    "aadhaar_number_placeholder": "আধার নম্বর",
+    "otp_placeholder": "ওটিপি লিখুন",
+    "send_otp_button": "ওটিপি পাঠান",
+    "verify_otp_button": "ওটিপি যাচাই করুন",
     "invalid_credentials": "অবৈধ শংসাপত্র। আবার চেষ্টা করুন।"
   },
   "main_dashboard": {
@@ -78,7 +83,7 @@
       "title": "নতুন আধার ডেটা যোগ করুন",
       "aadhaar_number_placeholder": "আধার নম্বর",
       "name_placeholder": "নাম",
-      "gender_placeholder": "লিঙ্গ",
+      "gender_label": "লিঙ্গ",
       "date_of_birth_placeholder": "জন্ম তারিখ (YYYY-MM-DD)",
       "phone_number_placeholder": "ফোন নম্বর",
       "address_placeholder": "ঠিকানা",
@@ -88,7 +93,7 @@
       "title": "আধার ডেটা সম্পাদনা করুন",
       "aadhaar_number_placeholder": "আধার নম্বর",
       "name_placeholder": "নাম",
-      "gender_placeholder": "লিঙ্গ",
+      "gender_label": "লিঙ্গ",
       "date_of_birth_placeholder": "জন্ম তারিখ (YYYY-MM-DD)",
       "phone_number_placeholder": "ফোন নম্বর",
       "address_placeholder": "ঠিকানা",

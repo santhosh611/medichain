@@ -2,9 +2,14 @@
   "login": {
     "main_login": "मुख्य लॉगिन",
     "hospital_admin_login": "अस्पताल एडमिन लॉगिन",
+    "patient_login": "रोगी लॉगिन",
     "login_button": "लॉग इन",
     "username_placeholder": "उपयोगकर्ता नाम",
     "password_placeholder": "पासवर्ड",
+    "aadhaar_number_placeholder": "आधार नंबर",
+    "otp_placeholder": "ओटीपी दर्ज करें",
+    "send_otp_button": "ओटीपी भेजें",
+    "verify_otp_button": "ओटीपी सत्यापित करें",
     "invalid_credentials": "अमान्य क्रेडेंशियल। कृपया पुनः प्रयास करें।"
   },
   "main_dashboard": {
@@ -78,7 +83,7 @@
       "title": "नया आधार डेटा जोड़ें",
       "aadhaar_number_placeholder": "आधार नंबर",
       "name_placeholder": "नाम",
-      "gender_placeholder": "लिंग",
+      "gender_label": "लिंग",
       "date_of_birth_placeholder": "जन्म तिथि (YYYY-MM-DD)",
       "phone_number_placeholder": "फोन नंबर",
       "address_placeholder": "पता",
@@ -88,7 +93,7 @@
       "title": "आधार डेटा संपादित करें",
       "aadhaar_number_placeholder": "आधार नंबर",
       "name_placeholder": "नाम",
-      "gender_placeholder": "लिंग",
+      "gender_label": "लिंग",
       "date_of_birth_placeholder": "जन्म तिथि (YYYY-MM-DD)",
       "phone_number_placeholder": "फोन नंबर",
       "address_placeholder": "पता",
