@@ -168,7 +168,7 @@ const PatientPage = () => {
           {submissionStatus === 'success' ? (
             <div className="flex flex-col items-center justify-center bg-white p-8 rounded-xl shadow-md">
                 <div className="op-form-container print:p-8" ref={opFormRef}>
-                    <h2 className="text-2xl font-bold mb-4">OP Form</h2>
+                    <h2 className="text-2xl font-bold mb-4">adminssion form</h2>
                     
                     {aadhaarData && (
                         <div className="mb-6">
@@ -196,10 +196,10 @@ const PatientPage = () => {
                     </div>
                 </div>
               <button onClick={handlePrint} className="w-full bg-blue-500 text-white p-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors print:hidden">
-                Print OP Form
+                Print Form
               </button>
               <button onClick={handleDownload} className="w-full mt-2 bg-purple-500 text-white p-3 rounded-lg font-semibold hover:bg-purple-600 transition-colors">
-                Download OP Form
+                Download Form
               </button>
               <button onClick={handleNewSubmission} className="w-full mt-2 bg-gray-500 text-white p-3 rounded-lg font-semibold hover:bg-gray-600 transition-colors">
                 New Submission
