@@ -6,9 +6,8 @@ const DoctorPage = () => {
     const [scanResult, setScanResult] = useState('');
     const [patient, setPatient] = useState(null);
     const [prescription, setPrescription] = useState('');
-    const [scanner, setScanner] = useState(null);
     const [isScanned, setIsScanned] = useState(false);
-    const [prescriptionSubmitted, setPrescriptionSubmitted] = useState(false); // New state to track prescription submission
+    const [prescriptionSubmitted, setPrescriptionSubmitted] = useState(false);
     const scannerRef = useRef(null);
 
     const renderScanner = () => {
@@ -30,7 +29,7 @@ const DoctorPage = () => {
     };
 
     useEffect(() => {
-        if (loggedIn) {
+        if (loggedIn && !isScanned && !prescriptionSubmitted) { // Only render if logged in and no scan/submission is active
             renderScanner();
         }
 
@@ -41,7 +40,7 @@ const DoctorPage = () => {
                 });
             }
         };
-    }, [loggedIn]);
+    }, [loggedIn, isScanned, prescriptionSubmitted]); // Add isScanned and prescriptionSubmitted to the dependency array
 
     const onScanSuccess = (decodedText) => {
         setScanResult(decodedText);
@@ -77,7 +76,7 @@ const DoctorPage = () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ patientId: scanResult, prescription, doctorId: 'doc123' })
         });
-        setPrescriptionSubmitted(true); // Set submission status to true
+        setPrescriptionSubmitted(true);
     };
     
     const handleRescan = () => {
@@ -85,8 +84,8 @@ const DoctorPage = () => {
         setPatient(null);
         setPrescription('');
         setIsScanned(false);
-        setPrescriptionSubmitted(false); // Reset submission status
-        renderScanner();
+        setPrescriptionSubmitted(false);
+        // The useEffect hook will now trigger a re-render of the scanner
     };
 
     if (!loggedIn) {
